@@ -1,0 +1,183 @@
+ @import './variables';
+ @import './mixin';
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   font-family: "Roboto";
+ }
+
+ .card {
+   width: 360px;
+   height: 422px;
+   background-color: $bgColor;
+   border: none;
+ @include forFlex(column, center, center);
+   box-shadow: 0 0 15px 5px #b1b1b1;
+   margin: 10px;
+   &:hover {
+     box-shadow: 0 0 15px 5px $lightColor;
+   }
+
+   h4 {
+     color: $mainColor;
+     font-size: $textSize*4;
+     font-weight: 700;
+     letter-spacing: 1.44px;
+     margin: 1rem;
+     sub {
+       vertical-align: bottom;
+       font-size: 1.4rem;
+       color: $seconderyColor;
+       font-size: $textSize*1.3;
+       font-weight: 400;
+       line-height: $textSize*2;
+       text-align: left;
+       letter-spacing: 0.48px;
+     }
+     sup {
+       margin-right: 0.5rem;
+       vertical-align: middle;
+       color: $mainColor;
+       font-size: 40px;
+       font-weight: 700;
+       line-height: 65.47px;
+       text-align: left;
+       letter-spacing: 0.44px;
+     }
+   }
+ }
+
+ .container {
+   max-width: 1288px;
+   height: 100%;
+   margin: 25px auto;
+   margin: 0 auto;
+ }
+
+ .row {
+  @include forFlex(column, space-around, center);
+  align-items: center;
+   height: 100%;
+ }
+
+ .card-wrap {
+  @include forFlex(row, stretch, space-around);
+   width: 100%;
+   flex-wrap: wrap;
+   margin-top: 20px;
+   margin-bottom: 80px;
+ }
+
+ .main-name {
+   color: $mainColor;
+   font-size: $textSize*3;
+   font-weight: 400;
+   font-style: normal;
+   letter-spacing: normal;
+   line-height: 14.4px;
+   text-align: left;
+   margin: 50px 0;
+ }
+
+ .card-name {
+   color: $mainColor;
+   font-size: $textSize*1.3;
+   font-weight: 400;
+   line-height: 36px;
+   text-align: left;
+   text-transform: uppercase;
+ }
+
+ .text {
+   max-width: 80%;
+   color: $seconderyColor;
+   font-size: $textSize;
+   font-weight: 400;
+   line-height: 30px;
+   text-align: center;
+   margin-bottom: 30px;
+ }
+
+ .btn {
+   width: 204px;
+   height: 48px;
+   border-radius: 24px;
+   background-color: $lightColor;
+   color: $bgColor;
+   text-align: center;
+   font-size: $textSize;
+   font-weight: 700;
+   letter-spacing: 0.24px;
+   border: none;
+   &:hover {
+     background-color: #3d5eb3;
+   }
+ }
+
+ h1 {
+   position: relative;
+   overflow: hidden;
+   font-size: $textSize*1.3;
+   font-weight: normal;
+   text-align: center;
+   span {
+     display: inline-block;
+     margin: 0 226px;
+     &:before,
+     &:after {
+       content: '';
+       position: absolute;
+       width: 100%;
+       border-top: 1px solid $seconderyColor;
+       margin-top: .9em;
+       opacity: 0.3;
+     }
+     &:before {
+       margin-left: -102%;
+     }
+     &:after {
+       margin-left: 2%;
+     }
+   }
+ }
+
+ .text-wrap {
+   display: flex;
+   flex-direction: row;
+   margin: 10px 0;
+   p {
+     margin: 0;
+   }
+ }
+
+ .img-ico {
+   background-image: url("img/check.png");
+     @extend %imgStyle;
+ }
+
+ .img-ico-hide {
+   background-image: url("img/cross.png");
+   @extend %imgStyle;
+ }
+
+ @media(max-width:680px) {
+   h1>span {
+     display: inline-block;
+     margin: 0 50px;
+   }
+   .main-name {
+     font-size: 35px;
+   }
+   .card {
+     width: 300px;
+   }
+ }
+ %imgStyle {
+   width: 24px;
+   height: 24px;
+   background-position: center;
+   background-repeat: no-repeat;
+   margin-right: 10px;
+ }
